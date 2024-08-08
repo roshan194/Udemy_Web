@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Loan EMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/number-to-words/1.2.4/numberToWords.min.js"></script>
+</head>
+<body>
+    <canvas id="chartContainer"></canvas>
+    <div class="calculator">
+        <h2>Calculate your Education Loan EMIs</h2>
+        <label for="loanAmount">Loan Amount: <span id="loanAmountLabel"></span></label>
+        <input type="number" id="loanAmount" oninput="updateLoanAmountLabel(this.value)">
+
+        <label for="courseDuration">Course Duration (in Months):</label>
+        <input type="number" id="courseDuration">
+
+        <label for="loanTenure">Loan Tenure:</label>
+        <input type="range" id="loanTenure" min="1" max="15" oninput="updateSliderLabel(this.value, 'tenureLabel')">
+        <span id="tenureLabel">9 years</span>
+
+        <label for="interestRate">Rate of Interest:</label>
+        <input type="range" id="interestRate" min="5" max="20" step="0.25" oninput="updateSliderLabel(this.value, 'interestRateLabel')">
+        <span id="interestRateLabel">7.75%</span>
+
+        <label for="gracePeriod">Grace Period:</label>
+        <input type="range" id="gracePeriod" min="0" max="12" oninput="updateSliderLabel(this.value, 'gracePeriodLabel')">
+        <span id="gracePeriodLabel">6 months</span>
+
+        <fieldset>
+            <legend>Does Your Repayment Start While Studying?</legend>
+            <label><input type="radio" name="repaymentOption" value="yes"> Yes</label>
+            <label><input type="radio" name="repaymentOption" value="no" checked> No</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Disbursal Option</legend>
+            <label><input type="radio" name="disbursalOption" value="custom"> Custom</label>
+            <label><input type="radio" name="disbursalOption" value="default" checked> Default</label>
+        </fieldset>
+
+        <button onclick="calculateEMI()">Calculate EMI</button>
+        <div id="result">
+            <p>Your EMI per month will be <span id="emiResult"></span></p>
+            <p>Total interest you'll have to pay <span id="totalInterest"></span></p>
+            <p>Your total payment (Principal + Interest) <span id="totalPayment"></span></p>
+            <div id="chartContainer" style="width: 300px; height: 300px;"></div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

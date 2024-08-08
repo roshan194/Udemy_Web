@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 0;
+}
+
+.calculator {
+    width: 100%;  /* Ensures the calculator uses up to 100% of its parent width */
+    max-width: 600px;  /* Sets a max width for larger screens */
+    padding: 20px;
+    margin: auto;  /* Auto margin for horizontal centering */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: white;
+    text-align: center;
+}
+
+input[type="range"], input[type="number"], input[type="radio"], button {
+    width: 100%; /* Ensure full width for better touch interaction */
+    margin-top: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+fieldset {
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+#chartContainer {
+    margin-top: 20px;
+    width: 100%;
+    height: 300px; /* Ensures the chart has enough space */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .calculator {
+        padding: 15px; /* Slightly smaller padding on smaller screens */
+    }
+
+    label, button, input {
+        font-size: 14px; /* Smaller font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    label, button, input {
+        font-size: 12px; /* Even smaller font size for very small screens */
+    }
+}
